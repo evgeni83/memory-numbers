@@ -68,7 +68,7 @@ const GameBoard: FC<GameBoardProps> = ({
   return (
     <div
       className="board-grid"
-      style={{ gridTemplateColumns: `repeat(${gridSize}, 1fr)` }}
+      style={{ gridTemplateColumns: `repeat(${gridSize}, auto)` }}
     >
       {cards.map((card) => (
         <Card

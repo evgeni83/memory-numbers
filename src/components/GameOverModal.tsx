@@ -5,7 +5,6 @@ interface GameOverModalProps {
   isVisible: boolean;
   time: number;
   mistakes: number;
-  isNewHighScore: boolean;
   onRestart: () => void;
 }
 
@@ -13,7 +12,6 @@ const GameOverModal: FC<GameOverModalProps> = ({
   isVisible,
   time,
   mistakes,
-  isNewHighScore,
   onRestart,
 }) => {
   if (!isVisible) {
@@ -32,8 +30,7 @@ const GameOverModal: FC<GameOverModalProps> = ({
         <h2>Game Over!</h2>
         <p>Your Time: {formatTime(time)}</p>
         <p>Your Mistakes: {mistakes}</p>
-        {isNewHighScore && <p className="new-high-score">New High Score!</p>}
-        <button onClick={onRestart}>Play Again</button>
+        <button onClick={onRestart}>Next Level</button>
       </div>
     </div>
   );
