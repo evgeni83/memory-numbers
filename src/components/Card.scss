@@ -1,4 +1,4 @@
-$card-size: 100px;
+$card-size: 80px;
 $card-border-radius: 8px;
 $card-transition-speed: 0.5s;
 $matched-color: #28a745;
@@ -9,7 +9,6 @@ $wrong-color: red;
   height: $card-size;
   perspective: 1000px;
   cursor: pointer;
-  margin: 10px;
 }
 
 .card {
