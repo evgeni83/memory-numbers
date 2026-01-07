@@ -1,0 +1,74 @@
+$card-size: 100px;
+$card-border-radius: 8px;
+$card-transition-speed: 0.5s;
+$matched-color: #28a745;
+$wrong-color: red;
+
+.card-container {
+  width: $card-size;
+  height: $card-size;
+  perspective: 1000px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform $card-transition-speed, box-shadow $card-transition-speed;
+  transform: rotateY(0deg);
+
+  &.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  &.is-matched {
+    .card-face-front {
+      border-color: $matched-color;
+      box-shadow: 0 0 10px $matched-color;
+    }
+  }
+
+  &.is-wrong {
+    .card-face-front {
+      border-color: $wrong-color;
+    }
+  }
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: $card-border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.card-face-front {
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #ddd;
+  transform: rotateY(180deg); // The front face is initially "behind"
+}
+
+.card-face-back {
+  background: linear-gradient(45deg, #6D5BBA, #8D58BF);
+  color: white;
+  border: 2px solid #6D5BBA;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
