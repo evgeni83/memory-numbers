@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Card from './Card';
-import { CardType } from '../App';
+import type { CardType } from '../App';
 
 describe('Card', () => {
   const mockOnClick = jest.fn();

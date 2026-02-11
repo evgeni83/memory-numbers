@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import GameBoard from './GameBoard';
-import { CardType } from '../App';
+import type { CardType } from '../App';
 
 describe('GameBoard', () => {
   const mockSetCards = jest.fn();
