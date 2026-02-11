@@ -48,7 +48,7 @@ function App() {
   };
 
   useEffect(() => {
-    let timer: number | null = null;
+    let timer: NodeJS.Timeout | null = null;
     if (!isGameOver) {
       timer = setInterval(() => {
         setTime((prevTime) => prevTime + 1);

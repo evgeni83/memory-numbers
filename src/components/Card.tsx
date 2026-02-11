@@ -19,7 +19,7 @@ const Card: FC<CardProps> = ({ card, isWrong, onClick }) => {
   ].filter(Boolean).join(' ');
 
   return (
-    <div className="card-container" onClick={onClick}>
+    <div className="card-container" data-testid="card-container" onClick={onClick}>
       <div className={cardClasses}>
         <div className="card-face card-face-front">
           {value}
