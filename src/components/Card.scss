@@ -8,6 +8,7 @@ $wrong-color: red;
   width: $card-size;
   height: $card-size;
   perspective: 1000px;
+  -webkit-perspective: 1000px;
   cursor: pointer;
 }
 
@@ -16,11 +17,16 @@ $wrong-color: red;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform $card-transition-speed, box-shadow $card-transition-speed;
   transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 
   &.is-flipped {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
   }
 
   &.is-matched {
@@ -42,6 +48,7 @@ $wrong-color: red;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border-radius: $card-border-radius;
   display: flex;
   align-items: center;
@@ -50,19 +57,26 @@ $wrong-color: red;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: border-color 0.3s, box-shadow 0.3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .card-face-front {
   background-color: #fff;
   color: #333;
   border: 2px solid #ddd;
-  transform: rotateY(180deg); // The front face is initially "behind"
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .card-face-back {
   background: linear-gradient(45deg, #6D5BBA, #8D58BF);
   color: white;
   border: 2px solid #6D5BBA;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes shake {
