@@ -124,12 +124,15 @@ describe('GameBoard', () => {
         { id: 3, value: 4, isFlipped: false, isMatched: false },
       ] as CardType[],
     };
-    
+
     render(<GameBoard {...allMatchedProps} />);
-    
+
     const lastCard = screen.getByText('4').closest('.card-container');
     fireEvent.click(lastCard!);
-    
+
+    // Advance timers to trigger the setTimeout for game completion (600ms)
+    jest.advanceTimersByTime(600);
+
     expect(mockOnGameComplete).toHaveBeenCalled();
   });
 
