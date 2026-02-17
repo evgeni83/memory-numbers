@@ -47,7 +47,10 @@ const GameBoard: FC<GameBoardProps> = ({
 
       const totalCards = gridSize * gridSize;
       if (nextExpectedNumber === totalCards) {
-        onGameComplete();
+        // Delay showing the success message to allow the card flip animation to complete
+        setTimeout(() => {
+          onGameComplete();
+        }, 600);
       }
     } else {
       setMistakes((prevMistakes) => prevMistakes + 1);

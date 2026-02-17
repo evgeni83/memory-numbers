@@ -76,8 +76,8 @@ test.describe('Memory Numbers Game', () => {
       await page.waitForTimeout(300);
     }
     
-    // Game Over modal should appear after completing the level
-    await expect(page.locator('.modal-overlay')).toBeVisible({ timeout: 5000 });
+    // Game Over modal should appear after completing the level (with animation delay)
+    await expect(page.locator('.modal-overlay')).toBeVisible({ timeout: 6000 });
   });
 
   test('should show Game Over modal with statistics', async ({ page }) => {
@@ -88,8 +88,8 @@ test.describe('Memory Numbers Game', () => {
       await page.waitForTimeout(300);
     }
     
-    // Wait for modal
-    await expect(page.locator('.modal-overlay')).toBeVisible({ timeout: 5000 });
+    // Wait for modal (with animation delay)
+    await expect(page.locator('.modal-overlay')).toBeVisible({ timeout: 6000 });
     await expect(page.locator('.modal-content h2')).toHaveText('Game Over!');
     
     // Check modal contains time and mistakes info
@@ -105,9 +105,9 @@ test.describe('Memory Numbers Game', () => {
       await page.waitForTimeout(300);
     }
     
-    // Wait for modal and click Next Level button
+    // Wait for modal (with animation delay) and click Next Level button
     const nextLevelButton = page.locator('.modal-content button:has-text("Next Level")');
-    await expect(nextLevelButton).toBeVisible({ timeout: 5000 });
+    await expect(nextLevelButton).toBeVisible({ timeout: 6000 });
     await nextLevelButton.click();
     
     // Wait for new game to start
